@@ -1,0 +1,17 @@
+Switch>enable
+Switch#configure terminal
+
+
+
+Switch(config)#ip routing
+Switch(config)#ip route 0.0.0.0 0.0.0.0 Fa0/1
+
+Switch(config)#interface fastEthernet 0/1
+Switch(config-if)#no switchport
+Switch(config-if)#ip address 172.30.0.2 255.255.255.0
+Switch(config-if)#no shutdown
+Switch(config-if)#exit
+Switch(config)#exit
+
+Switch#copy running-config startup-config
+

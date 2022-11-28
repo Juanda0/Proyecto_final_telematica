@@ -36,6 +36,7 @@ Core-SW2(config-if)#exit
 Core-SW2(config-if)#exit
 
 Core-SW2(config)#ip routing
+Core-SW2(config)#ip route 0.0.0.0 0.0.0.0 Fa0/2
 
 ore-SW2(config)#interface fastEthernet 0/2
 Core-SW2(config-if)#no switchport
