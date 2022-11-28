@@ -1,0 +1,67 @@
+Commands:
+
+Switch > enable
+Switch# configure terminal
+
+Switch(config)#hostname Access-SW2
+
+Access-SW2(config)#vlan 70
+Access-SW2(config-vlan)#name RH
+Access-SW2(config-vlan)#vlan 80
+Access-SW2(config-vlan)#name CONT
+Access-SW2(config-vlan)#vlan 90
+Access-SW2(config-vlan)#name PD
+Access-SW2(config-vlan)#vlan 100
+Access-SW2(config-vlan)#name TI
+
+Access-SW2(config-vlan)#exit
+Access-SW2(config)#exit
+
+Access-SW2#copy running-config startup-config
+
+
+Access-SW2# configure terminal
+
+Access-SW2(config)#interface fastEthernet 0/8
+Access-SW2(config-if)#switchport mode access
+Access-SW2(config-if)#switchport access vlan 70
+Access-SW2(config)#interface fastEthernet 0/9
+Access-SW2(config-if)#switchport mode access
+Access-SW2(config-if)#switchport access vlan 70
+
+
+Access-SW2(config)#interface fastEthernet 0/2
+Access-SW2(config-if)#switchport mode access
+Access-SW2(config-if)#switchport access vlan 80
+Access-SW2(config)#interface fastEthernet 0/3
+Access-SW2(config-if)#switchport mode access
+Access-SW2(config-if)#switchport access vlan 80
+
+Access-SW2(config)#interface fastEthernet 0/4
+Access-SW2(config-if)#switchport mode access
+Access-SW2(config-if)#switchport access vlan 90
+Access-SW2(config)#interface fastEthernet 0/5
+Access-SW2(config-if)#switchport mode access
+Access-SW2(config-if)#switchport access vlan 90
+
+Access-SW2(config)#interface fastEthernet 0/6
+Access-SW2(config-if)#switchport mode access
+Access-SW2(config-if)#switchport access vlan 100
+Access-SW2(config)#interface fastEthernet 0/7
+Access-SW2(config-if)#switchport mode access
+Access-SW2(config-if)#switchport access vlan 100
+
+
+Access-SW2(config-if)#exit
+Access-SW2(config)#exit
+
+Access-SW2#copy running-config startup-config
+
+Access-SW2# configure terminal
+Access-SW2(config)#interface fastEthernet 0/1
+Access-SW2(config-if)#switchport mode trunk
+Access-SW2(config-if)#exit
+Access-SW2(config)#exit
+Access-SW2#copy running-config startup-config
+
+

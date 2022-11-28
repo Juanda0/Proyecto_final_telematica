@@ -1,0 +1,29 @@
+Switch>enable
+Switch#configure terminal
+Switch(config)#hostname Distribution-SW1
+
+Distribution-SW1(config)#vlan 10
+Distribution-SW1(config-vlan)#name RH
+Distribution-SW1(config-vlan)#vlan 20
+Distribution-SW1(config-vlan)#name CONT
+Distribution-SW1(config-vlan)#vlan 30
+Distribution-SW1(config-vlan)#name PD
+Distribution-SW1(config-vlan)#vlan 40
+Distribution-SW1(config-vlan)#name TI
+Distribution-SW1(config-vlan)#vlan 50
+Distribution-SW1(config-vlan)#name PLAN
+Distribution-SW1(config-vlan)#vlan 60
+Distribution-SW1(config-vlan)#name SELL
+
+Distribution-SW1(config-vlan)#exit
+
+Distribution-SW1(config)#interface fastEthernet 0/1
+Distribution-SW1(config-if)#switchport trunk encapsulation dot1q
+Distribution-SW1(config-if)#switchport mode trunk
+Distribution-SW1(config-if)#exit
+Distribution-SW1(config)#interface fastEthernet 0/2
+Distribution-SW1(config-if)#switchport trunk encapsulation dot1q
+Distribution-SW1(config-if)#switchport mode trunk
+Distribution-SW1(config-if)#exit
+Distribution-SW1(config)#exit
+Distribution-SW1#copy running-config startup-config

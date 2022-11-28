@@ -1,0 +1,60 @@
+Switch>enable
+Switch#configure terminal
+Switch(config)#hostname Core-SW1
+Core-SW1(config)#interface fastEthernet 0/1
+Core-SW1(config-if)#switchport trunk encapsulation dot1q
+Core-SW1(config-if)#exit
+
+Core-SW1(config)#vlan 10
+Core-SW1(config-vlan)#name RH
+Core-SW1(config-vlan)#vlan 20
+Core-SW1(config-vlan)#name CONT
+Core-SW1(config-vlan)#vlan 30
+Core-SW1(config-vlan)#name PD
+Core-SW1(config-vlan)#vlan 40
+Core-SW1(config-vlan)#name TI
+Core-SW1(config-vlan)#vlan 50
+Core-SW1(config-vlan)#name PLAN
+Core-SW1(config-vlan)#vlan 60
+Core-SW1(config-vlan)#name SELL
+
+Core-SW1(config-vlan)#exit
+
+Core-SW1(config)#interface vlan 10
+Core-SW1(config-if)#ip address 172.30.1.1 255.255.255.0
+Core-SW1(config-if)#no shutdown
+Core-SW1(config-if)#exit
+Core-SW1(config)#interface vlan 20
+Core-SW1(config-if)#ip address 172.30.2.1 255.255.255.0
+Core-SW1(config-if)#no shutdown
+Core-SW1(config-if)#exit
+Core-SW1(config)#interface vlan 30
+Core-SW1(config-if)#ip address 172.30.3.1 255.255.255.0
+Core-SW1(config-if)#no shutdown
+Core-SW1(config-if)#exit
+Core-SW1(config)#interface vlan 40
+Core-SW1(config-if)#ip address 172.30.4.1 255.255.255.0
+Core-SW1(config-if)#no shutdown
+Core-SW1(config-if)#exit
+Core-SW1(config)#interface vlan 50
+Core-SW1(config-if)#ip address 172.30.5.1 255.255.255.0
+Core-SW1(config-if)#no shutdown
+Core-SW1(config-if)#exit
+Core-SW1(config)#interface vlan 60
+Core-SW1(config-if)#ip address 172.30.6.1 255.255.255.0
+Core-SW1(config-if)#no shutdown
+
+Core-SW1(config-if)#exit
+
+Core-SW1(config)#ip routing
+
+Core-SW1(config)#interface fastEthernet 0/2
+Core-SW1(config-if)#no switch port
+Core-SW1(config-if)#ip address 172.30.0.2 255.255.255.0
+Core-SW1(config-if)#no shutdown
+Core-SW1(config-if)#exit
+Core-SW1(config)#exit
+
+Core-SW1#copy running-config startup-config
+
+

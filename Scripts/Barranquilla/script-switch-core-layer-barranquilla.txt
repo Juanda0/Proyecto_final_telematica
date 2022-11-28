@@ -1,0 +1,48 @@
+Switch>enable
+Switch#configure terminal
+Switch(config)#hostname Core-SW2
+Core-SW2(config)#interface fastEthernet 0/1
+Core-SW2(config-if)#switchport trunk encapsulation dot1q
+Core-SW2(config-if)#exit
+
+Core-SW2(config)#vlan 70
+Core-SW2(config-vlan)#name RH
+Core-SW2(config-vlan)#vlan 80
+Core-SW2(config-vlan)#name CONT
+Core-SW2(config-vlan)#vlan 90
+Core-SW2(config-vlan)#name PD
+Core-SW2(config-vlan)#vlan 100
+Core-SW2(config-vlan)#name TI
+
+Core-SW2(config-vlan)#exit
+
+Core-SW2(config)#interface vlan 70
+Core-SW2(config-if)#ip address 172.30.7.1 255.255.255.0
+Core-SW2(config-if)#no shutdown
+Core-SW2(config-if)#exit
+Core-SW2(config)#interface vlan 80
+Core-SW2(config-if)#ip address 172.30.8.1 255.255.255.0
+Core-SW2(config-if)#no shutdown
+Core-SW2(config-if)#exit
+Core-SW2(config)#interface vlan 90
+Core-SW2(config-if)#ip address 172.30.9.1 255.255.255.0
+Core-SW2(config-if)#no shutdown
+Core-SW2(config-if)#exit
+Core-SW2(config)#interface vlan 100
+Core-SW2(config-if)#ip address 172.30.10.1 255.255.255.0
+Core-SW2(config-if)#no shutdown
+Core-SW2(config-if)#exit
+
+Core-SW2(config-if)#exit
+
+Core-SW2(config)#ip routing
+
+ore-SW2(config)#interface fastEthernet 0/2
+Core-SW2(config-if)#no switchport
+Core-SW2(config-if)#ip address 172.30.0.3 255.255.255.0
+Core-SW2(config-if)#no shutdown
+Core-SW2(config-if)#exit
+Core-SW2(config)#exit
+
+Core-SW2#copy running-config startup-config
+
