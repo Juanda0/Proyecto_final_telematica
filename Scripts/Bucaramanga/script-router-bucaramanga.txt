@@ -1,6 +1,6 @@
 Router>enable
 Router#config terminal
-
+Router(config)#ip route 100.10.11.0 255.255.255.224 172.30.254.1
 
 Router(config)#ip route 172.30.7.0 255.255.255.0 172.30.254.1
 Router(config)#ip route 172.30.8.0 255.255.255.0 172.30.254.1
@@ -13,6 +13,8 @@ Router(config)#ip route 172.30.3.0 255.255.255.0 172.30.254.1
 Router(config)#ip route 172.30.4.0 255.255.255.0 172.30.254.1
 Router(config)#ip route 172.30.5.0 255.255.255.0 172.30.254.1
 Router(config)#ip route 172.30.6.0 255.255.255.0 172.30.254.1
+
+Router(config)#ip route 0.0.0.0 0.0.0.0 Se0/3/0
 
 Router(config)#exit
 Router#copy running-config startup-config
